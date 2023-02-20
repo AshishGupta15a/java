@@ -45,8 +45,8 @@ class Temperature
             for (int j = 0; j < 5; j++)
                 if (high < arr[i][j])
                     high = arr[i][j];
-        for (int i = 0; i < 6; i++)
-            for (int j = 0; j < 5; j++)
+        for (int i = 0; i < 31; i++)
+            for (int j = 0; j < 10; j++)
                 if (Objects.equals(high, arr[i][j]))
                     System.out.println("Highest temperature was " + high + " Celsius on day-"+ (i+1) + " in the City-" + (j+1));
 
@@ -54,12 +54,12 @@ class Temperature
     void lowestTemp(Double[][] arr) 
     {
         Double low = arr[0][0];
-        for (int i = 0; i < 6; i++)
-            for (int j = 0; j < 5; j++)
+        for (int i = 0; i < 31; i++)
+            for (int j = 0; j < 10; j++)
                 if (low > arr[i][j])
                     low = arr[i][j];
-        for (int i = 0; i < 6; i++)
-            for (int j = 0; j < 5; j++)
+        for (int i = 0; i < 31; i++)
+            for (int j = 0; j < 10; j++)
                 if (Objects.equals(low, arr[i][j]))
                     System.out.println("Lowest temperature was " + low + " Celsius on day-"+ (i+1) + " in the City-" + (j+1));
     }
@@ -67,7 +67,7 @@ class Temperature
     {
         public static void main(String[] args) 
         {
-            Double[][] arr = new Double[6][5];
+            Double[][] arr = new Double[31][10];
             Temperature obj = new Temperature();
             obj.Temp(arr);
             obj.highestTemp(arr);

@@ -41,8 +41,8 @@ class Temperature
     void highestTemp(Double[][] arr) 
     {
         Double high = arr[0][0];
-        for (int i = 0; i < 6; i++)
-            for (int j = 0; j < 5; j++)
+        for (int i = 0; i < 31; i++)
+            for (int j = 0; j < 10; j++)
                 if (high < arr[i][j])
                     high = arr[i][j];
         for (int i = 0; i < 31; i++)

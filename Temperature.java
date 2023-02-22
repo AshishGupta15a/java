@@ -1,76 +1,39 @@
-import java.util.*;
-class Temperature 
-{
-    void Temp(Double[][] arr) 
-    {
-        System.out.println("\nEnter max temperature ");
+import java.util.Scanner;
+public class Temperature {
+    public static void main(String[] args) {
+        double[][] temperature = new double[2][10];
         Scanner sc = new Scanner(System.in);
-        System.out.print("In City-1: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][0] = sc.nextDouble();
-        System.out.print("In City-2: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][1] = sc.nextDouble();
-        System.out.print("In City-3: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][2] = sc.nextDouble();
-        System.out.print("In City-4: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][3] = sc.nextDouble();
-        System.out.print("In City-5: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][4] = sc.nextDouble();
-        System.out.print("In City-6: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][0] = sc.nextDouble();
-        System.out.print("In City-7: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][0] = sc.nextDouble();
-        System.out.print("In City-8: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][0] = sc.nextDouble();
-        System.out.print("In City-9: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][0] = sc.nextDouble();
-        System.out.print("In City-10: ");
-        for (int i = 0; i < 31; i++)
-                arr[i][0] = sc.nextDouble();
-        sc.close();
-    }
-    void highestTemp(Double[][] arr) 
-    {
-        Double high = arr[0][0];
-        for (int i = 0; i < 31; i++)
-            for (int j = 0; j < 10; j++)
-                if (high < arr[i][j])
-                    high = arr[i][j];
-        for (int i = 0; i < 31; i++)
-            for (int j = 0; j < 10; j++)
-                if (Objects.equals(high, arr[i][j]))
-                    System.out.println("Highest temperature was " + high + " Celsius on day-"+ (i+1) + " in the City-" + (j+1));
-
-    }
-    void lowestTemp(Double[][] arr) 
-    {
-        Double low = arr[0][0];
-        for (int i = 0; i < 31; i++)
-            for (int j = 0; j < 10; j++)
-                if (low > arr[i][j])
-                    low = arr[i][j];
-        for (int i = 0; i < 31; i++)
-            for (int j = 0; j < 10; j++)
-                if (Objects.equals(low, arr[i][j]))
-                    System.out.println("Lowest temperature was " + low + " Celsius on day-"+ (i+1) + " in the City-" + (j+1));
-    }
-    public class Temperature1
-    {
-        public static void main(String[] args) 
-        {
-            Double[][] arr = new Double[31][10];
-            Temperature obj = new Temperature();
-            obj.Temp(arr);
-            obj.highestTemp(arr);
-            obj.lowestTemp(arr);
+        System.out.println("Enter temperature data for city 1:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Day " + (i+1) + ": ");
+            temperature[0][i] = sc.nextDouble();
         }
+        System.out.println("Enter temperature data for city 2:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Day " + (i+1) + ": ");
+            temperature[1][i] = sc.nextDouble();
+        }
+        double maxTemp = temperature[0][0];
+        double minTemp = temperature[0][0];
+        int maxCity = 1;
+        int minCity = 1;
+        int maxDay = 1;
+        int minDay = 1;
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 10; j++) {
+                if (temperature[i][j] > maxTemp) {
+                    maxTemp = temperature[i][j];
+                    maxCity = i+1;
+                    maxDay = j+1;
+                }
+                if (temperature[i][j] < minTemp) {
+                    minTemp = temperature[i][j];
+                    minCity = i+1;
+                    minDay = j+1;
+                }
+            }
+        }
+        System.out.println("Highest temperature: " + maxTemp + " in City " + maxCity + ", Day " + maxDay);
+        System.out.println("Lowest temperature: " + minTemp + " in City " + minCity + ", Day " + minDay);
     }
 }

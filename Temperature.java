@@ -35,7 +35,6 @@ class Temperature
         System.out.print("In City-10: ");
         for (int i = 0; i < 31; i++)
                 arr[i][0] = sc.nextDouble();
-
         sc.close();
     }
     void highestTemp(Double[][] arr) 

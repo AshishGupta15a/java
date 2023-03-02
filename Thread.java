@@ -1,5 +1,6 @@
 import java.util.*;
-class Thread
+import java.lang.Thread;
+class Thread1
 {
     class A extends Thread
     {
@@ -37,10 +38,10 @@ class Thread
 
         public static void main(String args[])
         {
-            Thread a=new Thread();
-            a.new A().run();
-            a.new B().run();
-            a.new C().run();
+            Thread1 a=new Thread1();
+            a.new A().start();
+            a.new B().start();
+            a.new C().start();
         }
 
         
